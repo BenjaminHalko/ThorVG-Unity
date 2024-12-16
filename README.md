@@ -9,4 +9,5 @@
 
 ## Supported Platforms
 
-- Windows Only (for now)
+- Windows
+- MacOS
