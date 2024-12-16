@@ -1,7 +1,7 @@
 # Lottity
 ✨ Bringing Lottie Animations to Unity using [ThorVG](https://github.com/thorvg/thorvg)!
 
-![Melting](https://github.com/user-attachments/assets/8679abe2-bda8-495a-8b92-fe181d99b2b1)
+![Melting](https://github.com/user-attachments/assets/847718be-41db-4579-863b-b8951bae1e1c)
 
 ## How to Use
 
