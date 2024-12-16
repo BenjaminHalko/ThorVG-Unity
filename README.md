@@ -12,7 +12,9 @@
 - Windows
 - MacOS
 
-## Compiling ThorVG
+## Development
+
+### Compiling ThorVG
 
 ThorVG has already been included in the plugin, but in case you want to build it yourself, here's how:
 
