@@ -83,9 +83,7 @@ namespace Lottie.Sys
             if (!Dirty) return _texture;
             
             // Draw the canvas
-            TvgSys.Check(TvgLib.tvg_canvas_clear(_canvas, false, true), "Canvas Clear");
-            var result = TvgLib.tvg_canvas_draw(_canvas);
-            
+            var result = TvgLib.tvg_canvas_draw(_canvas, true);
             
             if (result != (int)Result.Success)
             {

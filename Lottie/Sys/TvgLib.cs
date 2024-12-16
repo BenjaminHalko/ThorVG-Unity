@@ -36,16 +36,13 @@ namespace Lottie.Sys
         public static extern int tvg_canvas_push(IntPtr handle, IntPtr paint);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int tvg_canvas_clear(IntPtr handle, bool paints, bool buffer);
-        
-        [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern int tvg_canvas_update(IntPtr handle);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern int tvg_canvas_update_paint(IntPtr handle, IntPtr paint);
 
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int tvg_canvas_draw(IntPtr handle);
+        public static extern int tvg_canvas_draw(IntPtr handle, bool clear);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern int tvg_canvas_sync(IntPtr handle);
@@ -99,10 +96,10 @@ namespace Lottie.Sys
         public static extern int tvg_animation_get_frame(IntPtr handle, out float frame);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern float tvg_animation_get_total_frame(IntPtr handle);
+        public static extern int tvg_animation_get_total_frame(IntPtr handle, out float totalFrame);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern float tvg_animation_get_duration(IntPtr handle);
+        public static extern int tvg_animation_get_duration(IntPtr handle, out float duration);
 
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr tvg_animation_get_picture(IntPtr handle);

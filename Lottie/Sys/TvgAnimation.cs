@@ -24,10 +24,23 @@ namespace Lottie.Sys
             }
             set => TvgLib.tvg_animation_set_frame(_handle, value);
         }
-        
-        public float TotalFrame => TvgLib.tvg_animation_get_total_frame(_handle);
-        
-        public float Duration => TvgLib.tvg_animation_get_duration(_handle);
+
+        public float TotalFrame
+        {
+            get
+            {
+                TvgSys.Check(TvgLib.tvg_animation_get_total_frame(_handle, out var totalFrame), "Animation Total Frame");
+                return totalFrame;
+            }
+        }
+
+        public float Duration {
+            get
+            {
+                TvgSys.Check(TvgLib.tvg_animation_get_duration(_handle, out var duration), "Animation Duration");
+                return duration;
+            }
+        }
 
         public void Play()
         {
