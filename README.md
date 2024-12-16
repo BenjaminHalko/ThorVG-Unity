@@ -24,12 +24,17 @@ ThorVG has already been included in the plugin, but in case you want to build it
   - MacOS: `brew install meson`
   - Linux: `sudo apt install meson`
 
-- Compile ThorVG:
+- Download ThorVG:
 
 ```bash
 git clone https://github.com/thorvg/thorvg.git
 cd thorvg
 git checkout v1.0-pre8
+```
+
+- Compile ThorVG:
+  
+```bash
 meson setup builddir -Dbindings="capi" --wipe
 meson compile -C builddir
 ```
