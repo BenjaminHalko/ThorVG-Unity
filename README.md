@@ -11,3 +11,25 @@
 
 - Windows
 - MacOS
+
+## Compiling ThorVG
+
+ThorVG has already been included in the plugin, but in case you want to build it yourself, here's how:
+
+- Install [Meson](https://mesonbuild.com/Getting-meson.html) and [Ninja](https://ninja-build.org)
+
+  - Windows: `pip install meson ninja`
+  - MacOS: `brew install meson`
+  - Linux: `sudo apt install meson`
+
+- Compile ThorVG:
+
+```bash
+git clone https://github.com/thorvg/thorvg.git
+cd thorvg
+git checkout v1.0-pre8
+meson setup builddir -Dbindings="capi" --wipe
+meson compile -C builddir
+```
+
+- Copy the built library from `builddir/src` to `Assets/Lottie/Plugins` in your Unity Project
