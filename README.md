@@ -3,8 +3,6 @@
 
 ![Melting](https://github.com/user-attachments/assets/847718be-41db-4579-863b-b8951bae1e1c)
 
-![Coin](https://github.com/user-attachments/assets/f4d715da-ade2-4504-a202-d8e67c85b204)
-
 ## How to Use
 
 - Add the `LottieSprite` component to any object. It will then be rendered using `SpriteComponent`. It's that simple!
@@ -42,3 +40,7 @@ meson compile -C builddir
 ```
 
 - Copy the built library from `builddir/src` to `Assets/Lottie/Plugins` in your Unity Project
+
+## Demo
+
+https://github.com/user-attachments/assets/ddbdddd8-1cba-4316-9e83-3bcccfc16cec
