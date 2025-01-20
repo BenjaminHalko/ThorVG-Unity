@@ -3,6 +3,14 @@
 
 ![Melting](https://github.com/user-attachments/assets/847718be-41db-4579-863b-b8951bae1e1c)
 
+## ⚠️ Disclaimer
+This is to a Proof of Concept, there are still many features missing such as:
+- Better animation controls
+  - Speed
+  - Loop Points
+  - Pause / Resume
+- Able to easily swap animations on the fly
+
 ## How to Use
 
 - Add the `LottieSprite` component to any object. It will then be rendered using `SpriteComponent`. It's that simple!
