@@ -43,7 +43,7 @@ git checkout v1.0-pre8
 - Compile ThorVG:
   
 ```bash
-meson setup builddir -Dbindings="capi" --wipe
+meson setup builddir -Dbindings=capi -Dloaders=lottie,svg -Dthreads=false -Dfile=false -Dpartial=false -Dextra=
 meson compile -C builddir
 ```
 
