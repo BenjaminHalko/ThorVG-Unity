@@ -59,7 +59,7 @@ namespace Tvg
             height = (int)h;
             duration = d;
             totalFrames = t;
-            fps = t / d;
+            fps = d > 0.0f ? t / d : 0.0f;
 
             // Flip the paint
             // Unity is Y-up, but ThorVG is Y-down
