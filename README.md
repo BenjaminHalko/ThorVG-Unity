@@ -1,10 +1,13 @@
 # ThorVG-Unity
+
 ✨ Bringing Lottie Animations to Unity using [ThorVG](https://github.com/thorvg/thorvg)!
 
 ![Melting](https://github.com/user-attachments/assets/847718be-41db-4579-863b-b8951bae1e1c)
 
 ## ⚠️ Disclaimer
+
 This is to a Proof of Concept, there are still many features missing such as:
+
 - Better animation controls
   - Speed
   - Loop Points
@@ -13,12 +16,13 @@ This is to a Proof of Concept, there are still many features missing such as:
 
 ## How to Use
 
-- Add the `LottieSprite` component to any object. It will then be rendered using `SpriteComponent`. It's that simple!
+- Add the `TvgPlayer` component to any object. It will then be rendered using `SpriteComponent`. It's that simple!
 
 ## Supported Platforms
 
 - Windows
 - MacOS
+- Linux
 
 ## Development
 
@@ -32,22 +36,16 @@ ThorVG has already been included in the plugin, but in case you want to build it
   - MacOS: `brew install meson`
   - Linux: `sudo apt install meson`
 
-- Download ThorVG:
+- Download & Compile ThorVG:
 
 ```bash
-git clone https://github.com/thorvg/thorvg.git
+git clone https://github.com/thorvg/thorvg.git --depth 1 --branch v1.0-pre30
 cd thorvg
-git checkout v1.0-pre8
+meson setup build -Dbindings=capi -Dloaders="lottie,svg,png,jpg,webp" -Dthreads=false -Dfile=false -Dpartial=false -Dextra= -Dbuildtype=release
+meson compile -C build
 ```
 
-- Compile ThorVG:
-  
-```bash
-meson setup builddir -Dbindings=capi -Dloaders=lottie,svg -Dthreads=false -Dfile=false -Dpartial=false -Dextra=
-meson compile -C builddir
-```
-
-- Copy the built library from `builddir/src` to `Assets/Lottie/Plugins` in your Unity Project
+- Copy the built library from `build/src` to `ThorVG-Unity/Plugins` in your Unity Project
 
 ## Demo
 
