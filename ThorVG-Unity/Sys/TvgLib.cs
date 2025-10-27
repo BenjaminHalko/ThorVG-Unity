@@ -21,7 +21,7 @@ namespace Tvg.Sys
 /************************************************************************/
 
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr tvg_swcanvas_create();
+        public static extern IntPtr tvg_swcanvas_create(EngineOption option);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern int tvg_canvas_destroy(IntPtr handle);

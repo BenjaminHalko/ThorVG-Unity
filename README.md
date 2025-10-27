@@ -36,7 +36,3 @@ meson compile -C build
 ```
 
 - Copy the built library from `build/src` to `ThorVG-Unity/Plugins` in your Unity Project
-
-## Demo
-
-https://github.com/user-attachments/assets/ddbdddd8-1cba-4316-9e83-3bcccfc16cec

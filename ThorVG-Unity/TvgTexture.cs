@@ -31,7 +31,7 @@ namespace Tvg
             TvgSys.Init();
 
             // Create the canvas and animation
-            __canvas = TvgLib.tvg_swcanvas_create();
+            __canvas = TvgLib.tvg_swcanvas_create(EngineOption.None);
             __animation = TvgLib.tvg_animation_new();
             __picture = TvgLib.tvg_animation_get_picture(__animation);
 

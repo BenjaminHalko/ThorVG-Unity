@@ -18,6 +18,12 @@ namespace Tvg.Sys
     {   
         Abgr8888S = 0
     }
+
+    internal enum EngineOption
+    {
+        // No special features
+        None = 0
+    }
     
     public static class TvgSys
     {
