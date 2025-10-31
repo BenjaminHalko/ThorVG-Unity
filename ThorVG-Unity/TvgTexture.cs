@@ -61,20 +61,9 @@ namespace Tvg
             totalFrames = t;
             fps = d > 0.0f ? t / d : 0.0f;
 
-            // Flip the paint
-            // Unity is Y-up, but ThorVG is Y-down
-            TvgSys.Check(
-                TvgLib.tvg_paint_translate(__picture, 0, height),
-                "Failed to translate paint");
-
-            TvgSys.Check(
-                TvgLib.tvg_picture_set_size(__picture, width, -height),
-                "Failed to scale paint");
-
             // Create the texture
-            __buffer = new uint[width * height];
-            __bufferHandle = GCHandle.Alloc(__buffer, GCHandleType.Pinned);
             __texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            Resize(width, height);
         }
 
         ~TvgTexture() {
@@ -98,6 +87,7 @@ namespace Tvg
             height = h;
 
             // Position the texture
+            // Unity is Y-up, but ThorVG is Y-down
             TvgSys.Check(
                 TvgLib.tvg_paint_translate(__picture, 0, height),
                 "Failed to translate paint");
@@ -116,6 +106,18 @@ namespace Tvg
 
             // Resize the texture
             __texture.Reinitialize(width, height);
+
+            // Set the target
+            TvgSys.Check(
+                TvgLib.tvg_swcanvas_set_target(
+                    __canvas,
+                    __bufferHandle.AddrOfPinnedObject(),
+                    (uint)width,
+                    (uint)width,
+                    (uint)height,
+                    Sys.ColorSpace.Abgr8888S),
+                "Failed to set target");
+
             __isDirty = true;
         }
 
@@ -139,23 +141,13 @@ namespace Tvg
 
             // Draw the canvas
             TvgSys.Check(
-                TvgLib.tvg_canvas_sync(__canvas),
-                "Failed to sync canvas");
-            TvgSys.Check(
-                TvgLib.tvg_swcanvas_set_target(
-                    __canvas,
-                    __bufferHandle.AddrOfPinnedObject(),
-                    (uint)width,
-                    (uint)width,
-                    (uint)height,
-                    Sys.ColorSpace.Abgr8888S),
-                "Failed to set target");
-            TvgSys.Check(
                 TvgLib.tvg_canvas_update(__canvas),
                 "Failed to update canvas");
+
             TvgSys.Check(
                 TvgLib.tvg_canvas_draw(__canvas, true),
                 "Failed to draw canvas");
+
             TvgSys.Check(
                 TvgLib.tvg_canvas_sync(__canvas),
                 "Failed to sync canvas");
