@@ -49,6 +49,9 @@ namespace Tvg.Sys
 
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr tvg_animation_new();
+
+        [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int tvg_animation_del(IntPtr handle);
         
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
         public static extern int tvg_animation_set_frame(IntPtr handle, float frame);

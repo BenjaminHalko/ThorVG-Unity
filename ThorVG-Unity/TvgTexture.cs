@@ -75,11 +75,14 @@ namespace Tvg
             __buffer = new uint[width * height];
             __bufferHandle = GCHandle.Alloc(__buffer, GCHandleType.Pinned);
             __texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-
-            Texture();
         }
 
         ~TvgTexture() {
+            // Free the picture
+            TvgSys.Check(
+                TvgLib.tvg_animation_del(__animation),
+                "Failed to destroy animation");
+
             // Free the canvas
             TvgSys.Check(
                 TvgLib.tvg_canvas_destroy(__canvas),
@@ -119,6 +122,8 @@ namespace Tvg
         public float frame {
             get => __frame;
             set {
+                if (value == __frame) return;
+
                 // Wrap the frame value
                 __frame = ((value % totalFrames) + totalFrames) % totalFrames;
 
