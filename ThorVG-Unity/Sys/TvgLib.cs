@@ -75,6 +75,6 @@ namespace Tvg.Sys
         public static extern int tvg_picture_get_size(IntPtr handle, out float w, out float h);
 
         [DllImport("thorvg", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int tvg_paint_translate(IntPtr handle, float x, float y);
+        public static extern int tvg_picture_set_origin(IntPtr handle, float x, float y);
     }
 }

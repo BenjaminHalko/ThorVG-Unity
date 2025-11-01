@@ -44,6 +44,12 @@ namespace Tvg
                 TvgLib.tvg_canvas_push(__canvas, __picture),
                 "Failed to push picture to canvas");
 
+            // Position the picture
+            // Unity is Y-up, but ThorVG is Y-down
+            TvgSys.Check(
+                TvgLib.tvg_picture_set_origin(__picture, 0, 1),
+                "Failed to set picture origin");
+
             // Get the animation info
             TvgSys.Check(
                 TvgLib.tvg_picture_get_size(__picture, out float w, out float h),
@@ -86,12 +92,7 @@ namespace Tvg
             width = w;
             height = h;
 
-            // Position the texture
-            // Unity is Y-up, but ThorVG is Y-down
-            TvgSys.Check(
-                TvgLib.tvg_paint_translate(__picture, 0, height),
-                "Failed to translate paint");
-
+            // Set the picture size
             TvgSys.Check(
                 TvgLib.tvg_picture_set_size(__picture, width, -height),
                 "Failed to set picture size");
