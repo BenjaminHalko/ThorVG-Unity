@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> 
+> ThorVG-Unity has now moved to [thorvg/thorvg.unity](https://github.com/thorvg/thorvg.unity)
+
 # ThorVG-Unity
 
 ✨ Bringing Lottie Animations to Unity using [ThorVG](https://github.com/thorvg/thorvg)!
